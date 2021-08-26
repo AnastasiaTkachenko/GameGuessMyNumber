@@ -72,16 +72,16 @@ html {
  .between {
    font-size: 1.4rem;
    position: absolute;
-   top: 7rem;
+   top: 2rem;
    right: 2rem;
-   left: 60rem; 
+   
  }
 
  
  .again {
    position:absolute ;
-   top: 75rem;
-   left: 80rem;
+   top: 2rem;
+   left: 2rem;
    border-radius: 48%;
  }
 
@@ -100,12 +100,12 @@ html {
  }
 
  .btn {
-   border: none;
+   border:none;
    background-color: #eee;
    color: #222;
    font-size: 2rem;
    font-family: inherit;
-   padding: 2rem 3rem;
+   padding: 3rem 3rem;
    cursor: pointer;
  }
  

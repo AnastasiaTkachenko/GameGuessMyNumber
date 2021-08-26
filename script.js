@@ -17,25 +17,33 @@ const displayBody = function(body) {
    document.querySelector('body').style.backgroundColor = body; 
 }
 
+const displayHighscore = function(highscore) {
+   document.querySelector ('.highscore').textContent = highscore; 
+}
+
+const displayNumber = function(number) {
+   document.querySelector ('.number').textContent = number; 
+}
+
 document.querySelector('.check').addEventListener('click', function() {
    const guess = Number(document.querySelector('.guess').value); 
  console.log(guess, typeof guess); 
 
- // WHEN THERE IS NO INPUT 
+// WHEN THERE IS NO INPUT 
 if (!guess) {
    displayMessage(' ❌ No Number!'); 
 
-   // WHEN THE NUMBER IS CORRECT 
+// WHEN THE NUMBER IS CORRECT 
  } else if (guess === secretNumber) {
    displayMessage('✨ Correct Number!');
-   document.querySelector ('.number') .textContent = secretNumber; 
    displayBody('#00c853'); 
+   displayNumber(secretNumber); 
    document.querySelector('.number').style.width = '30rem'; 
 
 
 if (score > highscore) {
    highscore = score; 
-   document.querySelector('.highscore').textContent = highscore; 
+   displayHighscore(highscore); 
 }
 
 // WHEN THE GUESS IS DIFFERENT FROM THE SECRET NUMBER (IT MEANS IT CAN BE TOO HIGH OR TOO LOW )
@@ -45,21 +53,21 @@ if (score > highscore) {
    score --;  // score = score -1 
   displayScore(score); 
 } else {
-   displayMessage(' 💥 You lost the game!');
-  displayScore(0);
+   displayMessage('💥 You lost the game!');
+   displayScore(0);
  }
  }); 
 
  document.querySelector('.again').addEventListener('click', function () {
    score = 20; 
    secretNumber = Math.trunc(Math.random()*20)+1;
-   displayBody('#222'); 
-   document.querySelector('.number').style.width = '15rem'; 
-   document.querySelector('.number').textContent = '?'; 
-   displayMessage('Start guessing ... ');
-   displayScore(score);
    document.querySelector('.guess').value = ''; 
-   document.querySelector ('.highscore').textContent = 0; 
+   document.querySelector('.number').style.width = '15rem'; 
+   displayNumber('?'); 
+   displayMessage('Start guessing ...');
+   displayScore(score);
+   displayBody('#222'); 
+   displayHighscore(0); 
  
-   console.log(body,number,message,score, guess, highscore); 
+ console.log(body,number,message,score, guess, highscore); 
 })
